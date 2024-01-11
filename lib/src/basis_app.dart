@@ -17,13 +17,13 @@ mixin BasisApp {
     }
   }
 
-  void registerListener() {
+  void configureListener() {
     if (microApps.isNotEmpty) {
       for (MicroApp e in microApps) e.eventListener();
     }
   }
   
-  void injectionRegister() {
+  void configureInjection() {
     if (microApps.isNotEmpty) {
       for (MicroApp e in microApps) e.injectionRegister();
     }
