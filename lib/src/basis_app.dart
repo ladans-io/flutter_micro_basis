@@ -1,0 +1,31 @@
+import '../flutter_micro_basis.dart';
+
+abstract class BasisApp {
+  List<MicroApp> get microApps;
+
+  Map<String, BasisRoute> get basisRoutes;
+
+  final Map<String, BasisRoute> routes = {};
+
+  void configureRoutes() {
+    if (basisRoutes.isNotEmpty) routes.addAll(basisRoutes);
+
+    if (microApps.isNotEmpty) {
+      for (final microApp in microApps) {
+        routes.addAll(microApp.routes);
+      }
+    }
+  }
+
+  void registerListener() {
+    if (microApps.isNotEmpty) {
+      for (MicroApp e in microApps) e.eventListener();
+    }
+  }
+  
+  void injectionRegister() {
+    if (microApps.isNotEmpty) {
+      for (MicroApp e in microApps) e.injectionRegister();
+    }
+  }
+}
