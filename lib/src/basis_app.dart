@@ -1,6 +1,6 @@
 import '../flutter_micro_basis.dart';
 
-abstract class BasisApp {
+mixin BasisApp {
   List<MicroApp> get microApps;
 
   Map<String, BasisRoute> get basisRoutes;
