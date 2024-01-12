@@ -5,14 +5,14 @@ mixin BasisApp {
 
   Map<String, BasisRoute> get basisRoutes;
 
-  final Map<String, BasisRoute> routes = {};
+  final Map<String, BasisRoute> registeredRoutes = {};
 
   void configureRoutes() {
-    if (basisRoutes.isNotEmpty) routes.addAll(basisRoutes);
+    if (basisRoutes.isNotEmpty) registeredRoutes.addAll(basisRoutes);
 
     if (microApps.isNotEmpty) {
       for (final microApp in microApps) {
-        routes.addAll(microApp.routes);
+        registeredRoutes.addAll(microApp.routes);
       }
     }
   }
